@@ -84,10 +84,13 @@ Example — a 115% gross-up and a 25-year term:
 ## Leads & privacy
 
 Submissions POST to the configured endpoint (a Supabase Edge Function) and are
-stored server-side; leads are reviewed privately. The form carries a hidden
-honeypot and the backend rate-limits by hashed IP — the raw IP is never stored.
-No credit pull, no SSN. The compliance disclaimer is built into the widget and
-ships on every embed.
+stored server-side; leads are reviewed privately. To unlock the buying-power
+figure the veteran provides name, email, **phone**, and **TCPA express written
+consent** to be contacted — the consent flag and the exact disclosure text are
+stored with each lead, and the backend rejects any submission without consent.
+The form carries a hidden honeypot and the backend rate-limits by hashed IP —
+the raw IP is never stored. No credit pull, no SSN. The compliance disclaimer is
+built into the widget and ships on every embed.
 
 ## Repo contents
 
