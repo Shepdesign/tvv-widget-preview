@@ -28,14 +28,15 @@
 
 /* \u2500\u2500 Olive header band + A1 app icon \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 .tvv__header {
-	display: flex; align-items: center; gap: 15px; padding: 20px 24px;
+	display: flex; flex-direction: column; align-items: center; text-align: center;
+	gap: 13px; padding: 26px 24px 24px;
 	background: linear-gradient(155deg, #45432B 0%, var(--tvv-olive) 45%, var(--tvv-olive-deep) 100%);
 }
-.tvv__mark { flex: 0 0 auto; display: block; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
-.tvv__brand { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.tvv__wordmark { font-weight: 800; font-size: 1.35rem; letter-spacing: 0.035em; line-height: 1; color: var(--tvv-bone); }
+.tvv__mark { flex: 0 0 auto; display: block; width: 72px; height: 72px; filter: drop-shadow(0 5px 12px rgba(0,0,0,0.38)); }
+.tvv__brand { display: flex; flex-direction: column; align-items: center; gap: 9px; width: 100%; }
+.tvv__wordmark { font-weight: 800; font-size: 1.85rem; letter-spacing: 0.05em; line-height: 1; color: var(--tvv-bone); }
 .tvv__gold { color: var(--tvv-gold); }
-.tvv__eyebrow { font-family: var(--tvv-mono); font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--tvv-sage-soft); }
+.tvv__eyebrow { font-family: var(--tvv-mono); font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--tvv-sage-soft); text-align: center; }
 
 /* \u2500\u2500 Form \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 .tvv__form { padding: 22px 24px 8px; }
@@ -131,7 +132,7 @@
 @media (prefers-reduced-motion: reduce) {
 	* { transition-duration: 0.01ms !important; }
 }
-`;function m(o){let t=typeof o=="number"?o:parseFloat(o);return!isFinite(t)||t<0?0:t}function g(o,t){let e=m(o.non_taxable_income),r=m(o.other_income),a=m(o.monthly_debts),n=e*(1+t.gross_up_rate),s=n+r,i=s*t.dti_cap-a,v=n-e,u=0;if(i>0){let f=t.interest_rate/12,h=t.term_years*12;u=f===0?i*h:i*(1-Math.pow(1+f,-h))/f}return{grossed_up:n,qualifying_income:s,max_housing_payment:Math.max(i,0),boost:v,buying_power:Math.round(u)}}function l(o){return"$"+Math.round(o).toLocaleString("en-US")}function p(o){return String(o).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}var b=`<svg class="tvv__mark" width="58" height="58" viewBox="0 0 120 120" role="img" aria-label="True Vet Value">
+`;function m(o){let t=typeof o=="number"?o:parseFloat(o);return!isFinite(t)||t<0?0:t}function g(o,t){let e=m(o.non_taxable_income),r=m(o.other_income),a=m(o.monthly_debts),n=e*(1+t.gross_up_rate),s=n+r,i=s*t.dti_cap-a,v=n-e,u=0;if(i>0){let f=t.interest_rate/12,h=t.term_years*12;u=f===0?i*h:i*(1-Math.pow(1+f,-h))/f}return{grossed_up:n,qualifying_income:s,max_housing_payment:Math.max(i,0),boost:v,buying_power:Math.round(u)}}function l(o){return"$"+Math.round(o).toLocaleString("en-US")}function p(o){return String(o).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}var b=`<svg class="tvv__mark" width="72" height="72" viewBox="0 0 120 120" role="img" aria-label="True Vet Value">
 <defs>
 <linearGradient id="tvvSqG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E7BF"/><stop offset="1" stop-color="#E4C98B"/></linearGradient>
 <linearGradient id="tvvTagG" x1="0.15" y1="0" x2="0.75" y2="1"><stop offset="0" stop-color="#5A5939"/><stop offset="0.45" stop-color="#34331F"/><stop offset="1" stop-color="#1D1C10"/></linearGradient>
