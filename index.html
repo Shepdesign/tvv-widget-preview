@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>True Vet Value — widget preview</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<style>
+		:root { --olive:#33321F; --bone:#F4EEE1; --gold:#E8A820; --ink:#8C8A75; }
+		* { box-sizing: border-box; }
+		body {
+			margin: 0; min-height: 100vh; padding: 56px 20px 80px;
+			background:
+				radial-gradient(120% 80% at 50% -10%, #FBF4E2 0%, var(--bone) 55%);
+			font-family: 'Archivo', system-ui, sans-serif; color: var(--olive);
+			display: flex; flex-direction: column; align-items: center; gap: 28px;
+		}
+		.page-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #C08A1A; }
+		.page-title { margin: 6px 0 0; font-size: 26px; font-weight: 800; letter-spacing: 0.01em; }
+		.page-sub { margin: 8px 0 0; font-size: 14px; color: #5F5E4C; max-width: 30rem; text-align: center; line-height: 1.55; }
+		.head { text-align: center; }
+		.note {
+			margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+			letter-spacing: 0.04em; color: var(--ink); text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="head">
+		<div class="page-eyebrow">TVV-SPEC-1.0 · Live preview</div>
+		<h1 class="page-title">VA buying-power widget</h1>
+		<p class="page-sub">The embeddable lead-gen calculator. Type in the fields — the estimate updates live. Enter a name and email to reveal the buying-power figure.</p>
+	</div>
+
+	<div data-tvv-mount></div>
+
+	<div class="note">Demo only · lead submission is stubbed (no data leaves this page)</div>
+
+	<!-- Stub the lead POST so the reveal works without a Supabase backend. -->
+	<script>
+		(function () {
+			var realFetch = window.fetch ? window.fetch.bind(window) : null;
+			window.fetch = function (url, opts) {
+				var u = String(url || '');
+				if (u.indexOf('/functions/v1/lead') !== -1) {
+					return Promise.resolve({
+						ok: true,
+						status: 200,
+						json: function () { return Promise.resolve({ success: true }); }
+					});
+				}
+				return realFetch ? realFetch(url, opts) : Promise.reject(new Error('no fetch'));
+			};
+		})();
+	</script>
+	<script src="./tvv.js"></script>
+</body>
+</html>
